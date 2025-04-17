@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>배경</title>
+    <style>
+      html {
+        background: url(./biird.jpg) no-repeat fixed center/cover;
+        /* background-size: cover; */
+      }
+      div {
+        /* background-color: gold; */
+        background-image: url(./bird.png);
+        width: 50%;
+        height: 300px;
+        padding: 20px;
+        border: 3px dotted red;
+        margin-bottom: 20px;
+        background-repeat: no-repeat; /*repeat-x, repeat-y*/
+      }
+
+      #bg1 {
+        background-position: center;
+      }
+
+      #bg2 {
+        background-position: right bottom;
+      }
+
+      #bg3 {
+        background-position: 30% 100px;
+      }
+
+      #bg4 {
+        width: 300px;
+        height: 200px;
+        background-size: contain; /* 배경보다 배경 이미지가 작다면 이미지를 가로/세로 같은 비율로 증가시켜 맞춰준다 */
+      }
+
+      #bg5 {
+        width: 100px;
+        height: 80px;
+        background-size: cover; /*배경보다 배경 이미지가 크다면 가로/세로 같은 비율로 이미지를 줄여서 맞춰줌. 한쪽이 맞을때까지. 그래서 좀 잘려보임*/
+        background-position: bottom center;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="bg1">
+      <p>
+        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Impedit odit
+        placeat ex aut fugiat non, expedita at provident recusandae laboriosam
+        veniam? Assumenda necessitatibus odit nulla porro? Earum aperiam illo
+        voluptate?
+      </p>
+    </div>
+    <div id="bg2">
+      <p>
+        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Impedit odit
+        placeat ex aut fugiat non, expedita at provident recusandae laboriosam
+        veniam? Assumenda necessitatibus odit nulla porro? Earum aperiam illo
+        voluptate?
+      </p>
+    </div>
+    <div id="bg3">
+      <p>
+        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Impedit odit
+        placeat ex aut fugiat non, expedita at provident recusandae laboriosam
+        veniam? Assumenda necessitatibus odit nulla porro? Earum aperiam illo
+        voluptate?
+      </p>
+    </div>
+    <div id="bg4"></div>
+    <div id="bg5"></div>
+  </body>
+</html>

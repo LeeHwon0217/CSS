@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>회원가입</title>
+    <style>
+      @font-face {
+        font-family: "Ownglyph_corncorn-Rg";
+        src: url("https://fastly.jsdelivr.net/gh/projectnoonnu/2412-1@1.0/Ownglyph_corncorn-Rg.woff2")
+          format("woff2");
+        font-weight: normal;
+        font-style: normal;
+      }
+      * {
+        box-sizing: border-box;
+        font-family: "Ownglyph_corncorn-Rg";
+        margin: 0;
+        padding: 0;
+      }
+
+      body {
+        background-color: #f2f2f2;
+        padding: 40px;
+      }
+
+      main {
+        max-width: 600px;
+        margin: 0 auto;
+        background-color: white;
+        padding: 30px;
+        border-radius: 10px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      }
+
+      h1 {
+        text-align: center;
+        margin-bottom: 30px;
+      }
+
+      form {
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+      }
+
+      label {
+        font-weight: bold;
+        margin-bottom: 5px;
+      }
+
+      input,
+      select,
+      textarea,
+      button {
+        padding: 10px;
+        width: 100%;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+      }
+
+      input[type="radio"],
+      input[type="checkbox"] {
+        width: auto;
+        margin-right: 5px;
+      }
+
+      .form-group.inline {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+      }
+
+      input[type="color"] {
+        width: 50px;
+        height: 40px;
+        padding: 0;
+        border: none;
+      }
+
+      fieldset {
+        border: 1px solid #ccc;
+        padding: 15px;
+        border-radius: 8px;
+      }
+
+      legend {
+        font-weight: bold;
+      }
+
+      .form-group {
+        margin-bottom: 15px;
+      }
+
+      button[type="submit"] {
+        background-color: #4caf50;
+        color: white;
+        font-size: 1rem;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+      }
+
+      button[type="submit"]:hover {
+        background-color: #45a049;
+      }
+
+      .footer-text {
+        text-align: center;
+        font-size: 0.9rem;
+        margin-top: 20px;
+        color: #777;
+      }
+    </style>
+  </head>
+  <body>
+    <!--
+    아이디
+    비밀번호
+    비밀번호 확인
+    이메일
+    직급
+    연락처
+    
+    
+    -->
+    <main>
+      <h1>회원 가입</h1>
+      <form action="/signup" method="post">
+        <div class="form-group">
+          <label for="userid">아이디</label>
+          <input
+            type="text"
+            maxlength="20"
+            name="userid"
+            id="userid"
+            placeholder="아이디를 입력하세요"
+          />
+          <!-- value="apple" 얘를 안에 넣으면 미리 써진다 -->
+        </div>
+
+        <div class="form-group">
+          <label for="userpw">비밀번호</label>
+          <input
+            type="password"
+            name="userpw"
+            maxlength="20"
+            id="userpw"
+            placeholder="비밀번호를 입력하세요"
+          />
+          <!-- name을 써줘야 백엔드가 인식 -->
+        </div>
+
+        <div class="form-group">
+          <label for="email">이메일</label>
+          <input
+            type="email"
+            maxlength="100"
+            name="email"
+            id="email"
+            placeholder="이메일을 입력하세요"
+          />
+        </div>
+
+        <div class="form-group">
+          <label for="hp">연락처</label>
+          <input
+            type="tel"
+            name="hp"
+            maxlength="11"
+            placeholder="01000000000"
+            id="hp"
+          />
+        </div>
+
+        <div class="form-group">
+          <label for="birth">생년월일</label>
+          <input type="date" name="birth" id="birth" />
+        </div>
+
+        <div class="form-group">
+          성별
+          <label
+            >남자<input type="radio" name="gender" id="male" value="남" checked
+          /></label>
+          <!-- 남자 글자 눌러도 클릭이된다 -->
+          <label
+            >여자<input type="radio" id="female" name="gender" value="여"
+          /></label>
+        </div>
+        <!-- gender로 하나의 값만 간다 -->
+
+        <div class="form-group inline">
+          <label for="color">좋아하는 색상</label>
+          <input type="color" name="color" id="color" />
+        </div>
+
+        <div class="form-group">
+          <label for="region">거주 지역</label>
+          <select name="region" id="region">
+            <option value="">-- 선택하세요 --</option>
+            <option value="서울">서울</option>
+            <option value="부산">부산</option>
+            <option value="대전">대전</option>
+            <option value="인천">인천</option>
+          </select>
+        </div>
+
+        <fieldset>
+          <legend>관심 분야</legend>
+          <label for="html">HTML</label>
+          <input type="checkbox" name="interest" value="hmtl" id="html" />
+          <label for="css">CSS</label>
+          <input type="checkbox" name="interest" value="css" id="css" />
+          <label for="javascript">JavaScript</label>
+          <input
+            type="checkbox"
+            name="interest"
+            value="javascript"
+            id="javascript"
+          />
+          <label for="python">PYTHON</label>
+          <input type="checkbox" name="interest" value="python" id="python" />
+          <label for="java">JAVA</label>
+          <input type="checkbox" name="interest" value="java" id="java" />
+        </fieldset>
+
+        <div class="form-group">
+          <label for="intro">자기소개</label>
+          <textarea
+            name="intro"
+            id="intro"
+            placeholder="간단한 자기소개를 작성해주세요"
+          ></textarea>
+        </div>
+
+        <div class="form-group">
+          <label for="file">프로필 사진 업로드</label>
+          <input type="file" name="file" id="file" />
+        </div>
+
+        <button type="submit">가입하기</button>
+        <!--누르면 action으로 간다-->
+
+        <p class="footer-text">
+          이미 계정이 있으신가요? <a href="#">로그인</a>
+        </p>
+      </form>
+    </main>
+  </body>
+</html>

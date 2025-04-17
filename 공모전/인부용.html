@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>현장 정보 화면</title>
+    <style>
+      * {
+        box-sizing: border-box;
+      }
+      body {
+        margin: 0;
+        font-family: "Arial", sans-serif;
+        background-color: #f0f2f5;
+        color: #222;
+      }
+
+      .container {
+        display: grid;
+        grid-template-columns: 2fr 1fr;
+        grid-template-rows: 1fr 1fr;
+        gap: 20px;
+        height: 100vh;
+        padding: 30px;
+      }
+
+      .section {
+        background: #ffffff;
+        padding: 30px;
+        border-radius: 15px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      }
+
+      .news {
+        grid-column: 1;
+        grid-row: 1;
+      }
+
+      .weather {
+        grid-column: 1;
+        grid-row: 2;
+      }
+
+      .gear {
+        grid-column: 2;
+        grid-row: 1 / span 2;
+      }
+
+      h2 {
+        font-size: 28px;
+        margin-bottom: 20px;
+      }
+
+      p,
+      li {
+        font-size: 22px;
+        line-height: 1.8;
+      }
+
+      ul {
+        padding-left: 25px;
+      }
+
+      @media (max-width: 800px) {
+        .container {
+          display: flex;
+          flex-direction: column;
+          height: auto;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <!-- 왼쪽 위: 뉴스 -->
+      <div class="section news">
+        <h2>📢 어제의 주요 뉴스</h2>
+        <ul>
+          <li>산업 안전 강화 대책 발표</li>
+          <li>철강업계, 탄소중립 실천 선언</li>
+          <li>건설현장 스마트헬멧 도입 추진</li>
+        </ul>
+      </div>
+
+      <!-- 왼쪽 아래: 날씨 + 응원 -->
+      <div class="section weather">
+        <h2>🌤 오늘의 날씨</h2>
+        <p>📍 서울: 맑음, 최고 23°C / 최저 14°C</p>
+
+        <h2 style="margin-top: 30px">💬 오늘의 응원</h2>
+        <p id="quote">오늘도 무사고! 모두의 안전을 응원합니다.</p>
+      </div>
+
+      <!-- 오른쪽: 장구류 -->
+      <div class="section gear">
+        <h2>🧰 오늘 챙겨야 할 장구류</h2>
+        <ul>
+          <li>✅ 안전모</li>
+          <li>✅ 안전화</li>
+          <li>✅ 보호안경</li>
+          <li>✅ 방진마스크</li>
+          <li>✅ 반사 조끼</li>
+          <li>✅ 귀마개</li>
+        </ul>
+      </div>
+    </div>
+
+    <script>
+      const quotes = [
+        "오늘도 무사고! 모두의 안전을 응원합니다.",
+        "작은 실천이 큰 안전을 만듭니다.",
+        "주의 한 번이 생명을 지킵니다.",
+        "당신의 한 걸음이 모두를 지킵니다.",
+        "건강하게, 안전하게, 함께 갑시다!",
+      ];
+      const quoteBox = document.getElementById("quote");
+      quoteBox.textContent = quotes[Math.floor(Math.random() * quotes.length)];
+    </script>
+  </body>
+</html>

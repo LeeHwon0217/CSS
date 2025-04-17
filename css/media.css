@@ -1,0 +1,156 @@
+@font-face {
+  font-family: "Ownglyph_corncorn-Rg";
+  src: url("https://fastly.jsdelivr.net/gh/projectnoonnu/2412-1@1.0/Ownglyph_corncorn-Rg.woff2")
+    format("woff2");
+  font-weight: normal;
+  font-style: normal;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+#container {
+  width: 100%; /*mobile*/
+}
+
+header {
+  padding: 20px;
+  width: 100%;
+}
+
+header > h1 {
+  text-align: center;
+  font-size: 2rem;
+}
+
+#menus {
+  width: 100%;
+}
+
+#menus > div {
+  height: 300px;
+  border: 1px solid black;
+  margin-bottom: 15px;
+  position: relative;
+  margin-bottom: 20px;
+}
+
+#menus h2 {
+  position: absolute;
+  right: 3%;
+  bottom: 10px;
+  color: white;
+  text-shadow: 3px 3px 5px white;
+}
+
+#menu1,
+#menu2,
+#menu3,
+#menu4,
+#menu5 {
+  width: 100%;
+}
+
+#menu1 {
+  background: url(../travel1.jpg) no-repeat center/cover;
+}
+
+#menu2 {
+  background: url(../travel2.jpg) no-repeat center/cover;
+}
+
+#menu3 {
+  background: url(../travel3.jpg) no-repeat center/cover;
+}
+
+#menu4 {
+  background: url(../travel4.jpg) no-repeat center/cover;
+}
+
+#menu5 {
+  background: url(../travel5.jpg) no-repeat center/cover;
+}
+
+footer {
+  width: 100%;
+  background-color: black;
+  height: 100px;
+}
+
+footer > p {
+  font-size: 14px;
+  color: white;
+  text-align: center;
+  line-height: 100px;
+}
+
+/* 테블릿 */
+@media (min-width: 768px) and (max-width: 1023px) {
+  #menus {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+  }
+
+  #menu1,
+  #menu2,
+  #menu3,
+  #menu4 {
+    width: 49%; /*여백이 필요해서 1퍼 뺸 값*/
+  }
+}
+
+/* 데스크탑
+@media (min-width: 1024px) {
+  #menus {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+  }
+
+  #menu1 {
+    width: 33%;
+    float: left;
+  }
+  #menu2 {
+    width: 33%;
+    float: right;
+  }
+  #menu3 {
+    width: 33%;
+    float: right;
+  }
+  #menu4 {
+    width: 49%;
+    float: left;
+    clear: both;
+  }
+  #menu5 {
+    width: 49%;
+    float: right;
+    clear: both;
+  }
+} */
+
+/* 데스크탑 쌤 버전 */
+@media (min-width: 1024px) {
+  #menus {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+  }
+
+  #menu1,
+  #menu2,
+  #menu3,
+  #menu4 {
+    width: 32%;
+  }
+
+  #menu5 {
+    width: 66%;
+  }
+}

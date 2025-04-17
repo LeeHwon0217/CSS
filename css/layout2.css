@@ -1,0 +1,117 @@
+@font-face {
+  font-family: "Ownglyph_corncorn-Rg";
+  src: url("https://fastly.jsdelivr.net/gh/projectnoonnu/2412-1@1.0/Ownglyph_corncorn-Rg.woff2")
+    format("woff2");
+  font-weight: normal;
+  font-style: normal;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Ownglyph_corncorn-Rg";
+  line-height: 1.6; /* 글자와 글자의 여백 1.6배*/
+}
+
+header,
+nav,
+main,
+section,
+article,
+aside,
+footer {
+  padding: 20px;
+}
+
+header {
+  background-color: white;
+  color: black;
+  text-align: center;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+}
+
+nav {
+  background-color: #f2f2f2;
+  color: black;
+  border-radius: 10px;
+}
+
+nav ul {
+  display: flex;
+  list-style: none;
+  justify-content: center;
+  gap: 50px;
+}
+
+nav a {
+  color: black;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+main {
+  display: grid;
+  grid-template-columns: 3fr 1fr;
+  gap: 20px;
+  padding: 20px;
+  background-color: white;
+}
+
+section {
+  background-color: #f2f2f2;
+  color: black;
+  padding: 20px;
+  border-radius: 6px;
+  box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.1);
+}
+
+article {
+  margin-bottom: 20px;
+}
+
+article h2 {
+  margin-bottom: 10px;
+}
+
+aside {
+  display: flex;
+  position: relative;
+
+  background-color: #f2f2f2;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.1);
+}
+
+img {
+  width: 100%;
+}
+
+.sidebarcontainer {
+  position: relative;
+}
+
+a {
+  color: #000;
+}
+a:hover {
+  color: #ccc;
+}
+a:active {
+  color: #de0c0c;
+}
+
+footer {
+  background-color: #f2f2f2;
+  color: black;
+  text-align: center;
+  padding: 20px;
+  margin-top: 20px;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+}

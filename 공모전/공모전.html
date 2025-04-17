@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>작업 선택 화면</title>
+    <style>
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        font-family: "Pretendard", "Noto Sans KR", sans-serif;
+        background: linear-gradient(135deg, #e0f7fa, #ffffff);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+        padding: 20px;
+      }
+
+      .container {
+        background: #fff;
+        border-radius: 16px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        padding: 40px 50px;
+        max-width: 1000px;
+        width: 100%;
+        animation: fadeIn 1s ease-in-out;
+      }
+
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+          transform: translateY(20px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      h2 {
+        text-align: center;
+        margin-bottom: 40px;
+        color: #333;
+        font-size: 28px;
+      }
+
+      .dropdown-row {
+        display: flex;
+        justify-content: space-between;
+        gap: 30px;
+        flex-wrap: wrap;
+      }
+
+      .dropdown-group {
+        flex: 1;
+        min-width: 250px;
+        display: flex;
+        flex-direction: column;
+      }
+
+      label {
+        font-weight: 600;
+        margin-bottom: 10px;
+        font-size: 16px;
+        color: #555;
+      }
+
+      select {
+        padding: 14px 16px;
+        border-radius: 12px;
+        border: 1px solid #ccc;
+        background-color: #f9f9f9;
+        font-size: 16px;
+        transition: all 0.3s ease;
+        appearance: none;
+        outline: none;
+      }
+
+      select:hover {
+        border-color: #4caf50;
+        background-color: #eefcef;
+      }
+
+      select:focus {
+        border-color: #2e7d32;
+        background-color: #e8f5e9;
+      }
+
+      @media screen and (max-width: 768px) {
+        .container {
+          padding: 30px 20px;
+        }
+
+        .dropdown-row {
+          flex-direction: column;
+          gap: 20px;
+        }
+
+        h2 {
+          font-size: 24px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h2>작업 선택 화면</h2>
+      <div class="dropdown-row">
+        <div class="dropdown-group">
+          <label for="main">대분류</label>
+          <select id="main" onchange="updateMid()">
+            <option value="">-- 선택하세요 --</option>
+            <option value="기계">기계</option>
+            <option value="전자">전자</option>
+          </select>
+        </div>
+
+        <div class="dropdown-group">
+          <label for="mid">중분류</label>
+          <select id="mid" onchange="updateSub()">
+            <option value="">-- 먼저 대분류 선택 --</option>
+          </select>
+        </div>
+
+        <div class="dropdown-group">
+          <label for="sub">소분류</label>
+          <select id="sub">
+            <option value="">-- 먼저 중분류 선택 --</option>
+          </select>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      const categoryData = {
+        기계: {
+          금형: ["프레스", "사출", "주조"],
+          기계가공: ["밀링", "선반", "연삭"],
+        },
+        전자: {
+          반도체: ["설계", "패키징", "검사"],
+          디스플레이: ["OLED", "LCD", "검사"],
+        },
+      };
+
+      function updateMid() {
+        const main = document.getElementById("main").value;
+        const mid = document.getElementById("mid");
+        const sub = document.getElementById("sub");
+
+        mid.innerHTML = '<option value="">-- 중분류 선택 --</option>';
+        sub.innerHTML = '<option value="">-- 소분류 선택 --</option>';
+
+        if (main && categoryData[main]) {
+          Object.keys(categoryData[main]).forEach((m) => {
+            const option = document.createElement("option");
+            option.value = m;
+            option.text = m;
+            mid.appendChild(option);
+          });
+        }
+      }
+
+      function updateSub() {
+        const main = document.getElementById("main").value;
+        const mid = document.getElementById("mid").value;
+        const sub = document.getElementById("sub");
+
+        sub.innerHTML = '<option value="">-- 소분류 선택 --</option>';
+
+        if (main && mid && categoryData[main][mid]) {
+          categoryData[main][mid].forEach((s) => {
+            const option = document.createElement("option");
+            option.value = s;
+            option.text = s;
+            sub.appendChild(option);
+          });
+        }
+      }
+    </script>
+  </body>
+</html>
