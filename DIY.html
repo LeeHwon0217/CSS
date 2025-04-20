@@ -1,44 +1,146 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>fixed</title>
+    <title>미니 타로카드 뽑기</title>
     <style>
       body {
+        background-color: #f7f0e8;
+        font-family: "Arial", sans-serif;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        height: 100vh;
         margin: 0;
-        padding: 20px;
-        line-height: 2;
       }
 
-      .content {
-        height: 2000px;
+      h1 {
+        margin-bottom: 30px;
+        color: #4a3f35;
       }
 
-      .fixed-button {
-        position: fixed;
-        bottom: 20px;
-        right: 20px;
-        background-color: #4caf50;
-        color: white;
-        padding: 10px 20px;
-        border-radius: 8px;
-        text-decoration: none;
+      .scene {
+        width: 200px;
+        height: 300px;
+        perspective: 1000px;
+        margin-bottom: 20px;
+      }
+
+      .card {
+        width: 100%;
+        height: 100%;
+        position: relative;
+        transform-style: preserve-3d;
+        transition: transform 0.8s;
+        cursor: pointer;
+      }
+
+      .card.flipped {
+        transform: rotateY(180deg);
+      }
+
+      .card__face {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        backface-visibility: hidden;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 20px;
         font-weight: bold;
-        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+        border-radius: 12px;
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+        padding: 10px;
+        text-align: center;
       }
 
-      .fixed-button:hover {
-        background-color: #388e3c;
+      .card__front {
+        background-color: #8d6e63;
+        color: white;
+      }
+
+      .card__back {
+        background-color: #ffe0b2;
+        color: #3e2723;
+        transform: rotateY(180deg);
+        flex-direction: column;
+      }
+
+      .description {
+        font-size: 14px;
+        margin-top: 10px;
+        color: #5d4037;
+      }
+
+      button {
+        padding: 10px 20px;
+        font-size: 16px;
+        background-color: #6d4c41;
+        color: white;
+        border: none;
+        border-radius: 8px;
+        cursor: pointer;
+      }
+
+      button:hover {
+        background-color: #5d4037;
       }
     </style>
   </head>
   <body>
-    <div class="content">
-      <h2>스크롤을 내려보세요</h2>
-      <p>이 페이지는 fixed 속성을 테스트하기 위한 예제입니다</p>
+    <h1>🎴 오늘의 타로카드</h1>
+
+    <div class="scene" onclick="flipCard()">
+      <div class="card" id="tarotCard">
+        <div class="card__face card__front">카드 뒷면</div>
+        <div class="card__face card__back" id="cardBack">
+          <div id="cardTitle">타로카드 이름</div>
+          <div class="description" id="cardMeaning">
+            카드 해석이 여기에 표시됩니다.
+          </div>
+        </div>
+      </div>
     </div>
 
-    <a href="#" class="fixed-button">위로 가기</a>
+    <button onclick="drawCard()">카드 다시 뽑기</button>
+
+    <script>
+      const tarotDeck = [
+        { name: "The Fool", meaning: "새로운 시작, 자유, 모험을 향한 열정" },
+        { name: "The Magician", meaning: "자신감, 창조력, 잠재력의 실현" },
+        {
+          name: "The High Priestess",
+          meaning: "직관, 내면의 지혜, 신비한 깨달음",
+        },
+        { name: "The Empress", meaning: "풍요, 모성애, 창조성" },
+        { name: "The Emperor", meaning: "권위, 안정, 책임감" },
+        { name: "The Lovers", meaning: "사랑, 관계, 선택의 갈림길" },
+        { name: "The Hermit", meaning: "고독, 성찰, 내면 탐색" },
+        { name: "The Tower", meaning: "갑작스러운 변화, 붕괴, 깨달음" },
+        { name: "The Star", meaning: "희망, 치유, 영감" },
+        { name: "The World", meaning: "완성, 성취, 새로운 시작" },
+      ];
+
+      function drawCard() {
+        const randomCard =
+          tarotDeck[Math.floor(Math.random() * tarotDeck.length)];
+        document.getElementById("cardTitle").innerText = randomCard.name;
+        document.getElementById("cardMeaning").innerText = randomCard.meaning;
+
+        const card = document.getElementById("tarotCard");
+        card.classList.remove("flipped"); // 다시 카드 뒷면으로
+        setTimeout(() => card.classList.add("flipped"), 300); // 살짝 딜레이 후 다시 뒤집기
+      }
+
+      function flipCard() {
+        const card = document.getElementById("tarotCard");
+        card.classList.toggle("flipped");
+      }
+
+      // 처음 페이지 열릴 때 자동으로 카드 뽑기
+      drawCard();
+    </script>
   </body>
 </html>

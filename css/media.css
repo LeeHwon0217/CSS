@@ -103,38 +103,6 @@ footer > p {
   }
 }
 
-/* 데스크탑
-@media (min-width: 1024px) {
-  #menus {
-    display: flex;
-    justify-content: space-between;
-    flex-wrap: wrap;
-  }
-
-  #menu1 {
-    width: 33%;
-    float: left;
-  }
-  #menu2 {
-    width: 33%;
-    float: right;
-  }
-  #menu3 {
-    width: 33%;
-    float: right;
-  }
-  #menu4 {
-    width: 49%;
-    float: left;
-    clear: both;
-  }
-  #menu5 {
-    width: 49%;
-    float: right;
-    clear: both;
-  }
-} */
-
 /* 데스크탑 쌤 버전 */
 @media (min-width: 1024px) {
   #menus {
